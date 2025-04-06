@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dttdk4xayxlse"]
+
+[ext_resource type="PackedScene" uid="uid://dysindd14sr5" path="res://Player/player.tscn" id="1_iu3qw"]
+[ext_resource type="PackedScene" uid="uid://byrh04rowwvfe" path="res://Tile Maps/grass-01.tscn" id="2_7oj32"]
+
+[node name="PlayGround" type="Node2D"]
+position = Vector2(-161, -161)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_iu3qw")]
+position = Vector2(259, 213)
+
+[node name="Grass-01" parent="." instance=ExtResource("2_7oj32")]
+position = Vector2(0, 2)
