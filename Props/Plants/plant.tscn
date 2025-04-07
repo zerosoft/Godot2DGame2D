@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://daroc8x6hipoq"]
+[gd_scene load_steps=6 format=3 uid="uid://daroc8x6hipoq"]
 
 [ext_resource type="Script" uid="uid://b1cb1v4k7svn6" path="res://Props/Plants/plant.gd" id="1_djs60"]
 [ext_resource type="Texture2D" uid="uid://c6iit3apyt8j2" path="res://Props/Sprites/Props.png" id="1_opo5d"]
 [ext_resource type="Script" uid="uid://bgdy8nne17o5" path="res://GeneralNodes/HitBox/hit_box.gd" id="2_qsug5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qsug5"]
-size = Vector2(24, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_djs60"]
+size = Vector2(23.125, 8.125)
 
 [node name="Plant" type="Node2D"]
 script = ExtResource("1_djs60")
@@ -26,11 +28,11 @@ position = Vector2(-1, 8)
 shape = SubResource("RectangleShape2D_qsug5")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-light_mask = 16
-visibility_layer = 0
+position = Vector2(-1, 1)
+collision_layer = 16
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-light_mask = 16
-visibility_layer = 0
-position = Vector2(0, 8)
-shape = SubResource("RectangleShape2D_qsug5")
+position = Vector2(0.5625, 13.0625)
+shape = SubResource("RectangleShape2D_djs60")
+debug_color = Color(0.8747, 0.296871, 0.461077, 0.42)
