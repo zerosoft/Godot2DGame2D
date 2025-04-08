@@ -7,6 +7,8 @@ var direction :Vector2 = Vector2.ZERO
 @onready var sprite :Sprite2D = $Sprite2D
 @onready var state_machine :PlayerStateMachine = $StateMachine
 
+signal DirectionChanged(new_direction:Vector2)
+
 func _ready():
 	state_machine.Initialize(self)
 	pass
@@ -39,7 +41,7 @@ func SetDirection() -> bool:
 		return false
 
 	carddinal_directions = new_direction
-
+	DirectionChanged.emit(new_direction)
 	sprite.scale.x = -1 if carddinal_directions == Vector2.LEFT else 1
 
 	return true

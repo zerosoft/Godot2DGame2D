@@ -4,7 +4,7 @@ var attacking:bool = false
 
 @export var attack_sound :AudioStream
 @export_range(1,20,0.5) var deceleration:float = 5.0
-
+@onready var hurt_box:HurtBox =$"../../Interactions/HurtBox"
 
 @onready var idle : State = $"../Attack"
 @onready var walk : State = $"../Walk"
@@ -23,6 +23,9 @@ func Enter() -> void:
 	audio.play()
 
 	attacking = true
+	await get_tree().create_timer(0.075).timeout
+	hurt_box.monitorable =true
+	
 	pass
 
 func Exit() -> void:
@@ -30,6 +33,7 @@ func Exit() -> void:
 
 
 	attacking = false
+	hurt_box.monitorable = false
 	pass
 
 func Process(_delta:float) -> State:
