@@ -247,6 +247,9 @@ _data = {
 &"no_attack": SubResource("Animation_gu6f8")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_apopc"]
+radius = 20.0
+
 [sub_resource type="Animation" id="Animation_i3pqv"]
 length = 0.001
 tracks/0/type = "value"
@@ -426,9 +429,6 @@ _data = {
 &"walk_up": SubResource("Animation_1jxqw")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_apopc"]
-radius = 20.0
-
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 16
 motion_mode = 1
@@ -460,6 +460,15 @@ modulate = Color(0, 0, 0, 0.658824)
 position = Vector2(0, 22)
 texture = ExtResource("4_00tjw")
 
+[node name="AttackHurtBox" parent="Sprite2D" instance=ExtResource("10_x3vf3")]
+unique_name_in_owner = true
+collision_layer = 1
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/AttackHurtBox"]
+shape = SubResource("CircleShape2D_apopc")
+debug_color = Color(0.802471, 0.267811, 0.801615, 0.42)
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_b26j0")
@@ -487,12 +496,3 @@ max_polyphony = 4
 
 [node name="Interactions" type="Node2D" parent="."]
 script = ExtResource("10_apopc")
-
-[node name="HurtBox" parent="Interactions" instance=ExtResource("10_x3vf3")]
-position = Vector2(0, 16)
-collision_mask = 256
-monitoring = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/HurtBox"]
-shape = SubResource("CircleShape2D_apopc")
-debug_color = Color(0.802471, 0.267811, 0.801615, 0.42)

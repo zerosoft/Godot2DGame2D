@@ -20,7 +20,6 @@ vframes = 3
 [node name="HitBox" type="Area2D" parent="."]
 position = Vector2(2, 0)
 collision_layer = 256
-collision_mask = 256
 monitoring = false
 script = ExtResource("2_qsug5")
 metadata/_custom_type_script = "uid://bgdy8nne17o5"
