@@ -2,9 +2,18 @@ class_name Plant extends Node2D
 
 
 func _ready() -> void:
-	$HitBox.Damaged.connect(TakeDamage)
+	# print_tree()  # 打印场景树
+	var hitbox=$HitBox
+	if hitbox:
+		print("HitBox is valid:", $HitBox)
+		hitbox.Damaged.connect(TakeDamage)
+	else:
+		print("Node 'HitBox' not found!")
 	pass
 	
 func TakeDamage(_damage:int)->void:
 	queue_free()
+	pass
+
+func _process(delta: float) -> void:
 	pass

@@ -7,6 +7,7 @@ var direction :Vector2 = Vector2.ZERO
 @onready var sprite :Sprite2D = $Sprite2D
 @onready var state_machine :PlayerStateMachine = $StateMachine
 
+
 signal DirectionChanged(new_direction:Vector2)
 
 func _ready():
@@ -24,18 +25,16 @@ func _process(delta):
 		).normalized()
 	pass
 
-func _physics_process(delta: float) -> void:
-	move_and_slide()
-
-
 func SetDirection() -> bool:
 	var new_direction :Vector2 = carddinal_directions
 	if direction == Vector2.ZERO:
 		return false
-	if direction.y == 0:
-		new_direction=Vector2.LEFT if direction.x < 0 else Vector2.RIGHT
-	elif direction.x == 0:
-		new_direction=Vector2.UP if direction.y < 0 else Vector2.DOWN
+	
+	# 确保只允许上下左右四个方向
+	if abs(direction.x) > abs(direction.y):
+		new_direction = Vector2.LEFT if direction.x < 0 else Vector2.RIGHT
+	else:
+		new_direction = Vector2.UP if direction.y < 0 else Vector2.DOWN
 	
 	if new_direction == carddinal_directions:
 		return false
@@ -60,3 +59,24 @@ func UpdateAnimation(state : String) -> void:
 	var animation_name :String = state + "_" + AnimationDirection()
 	animation_player.play(animation_name)
 	pass
+
+func _physics_process(delta: float) -> void:
+
+	if abs(direction.x) > abs(direction.y):
+		direction = Vector2(direction.x, 0).normalized()
+	else:
+		direction = Vector2(0, direction.y).normalized()
+	
+ 	# 限制角色在地图边界内移动
+	if LevelManager.current_titlemap_bounds!=null:
+		var bounds :Array[Vector2] = LevelManager.current_titlemap_bounds
+		if position.x < bounds[0].x:
+			position.x = bounds[0].x
+		elif position.x > bounds[1].x:
+			position.x = bounds[1].x
+		if position.y < bounds[0].y:
+			position.y = bounds[0].y
+		elif position.y > bounds[1].y:
+			position.y = bounds[1].y
+
+	move_and_slide()
