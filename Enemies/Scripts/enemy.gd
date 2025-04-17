@@ -15,7 +15,12 @@ var invulnerable :bool = false
 @onready var animation_player :AnimationPlayer = $AnimationPlayer
 @onready var sprite :Sprite2D = $Sprite2D
 # @onready var hitbox :Area2D = $Hitbox
-# @onready var state_machine :EnemyStateMachine = $EnemyStateMachine
+@onready var state_machine :EnemyStateMachine = $EnemyStateMachine
+
+func _ready():
+	state_machine.Initialize(self)
+	play=PlayerManager.player 
+	pass
 
 func _physics_process(delta: float) -> void:
 	move_and_slide()
