@@ -21,6 +21,19 @@ func enter()->void:
 	var rand=randi_range(0,3)
 	_direction=enemy.DIR_4[rand]
 	enemy.velocity = _direction * walk_speed
+
+	# 限制角色在地图边界内移动
+	if LevelManager.current_titlemap_bounds!=null:
+		var bounds :Array[Vector2] = LevelManager.current_titlemap_bounds
+		if enemy.velocity.x < bounds[0].x:
+			enemy.velocity.x = bounds[0].x
+		elif enemy.velocity.x > bounds[1].x:
+			enemy.velocity.x = bounds[1].x
+		if enemy.velocity.y < bounds[0].y:
+			enemy.velocity.y = bounds[0].y
+		elif enemy.velocity.y > bounds[1].y:
+			enemy.velocity.y = bounds[1].y
+
 	enemy.set_direction(_direction)
 	
 	enemy.UpdateAnimation(anim_name)

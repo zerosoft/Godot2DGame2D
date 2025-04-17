@@ -37,3 +37,48 @@ position = Vector2(188, 304)
 
 [node name="Slime2" parent="." instance=ExtResource("4_hm0dn")]
 position = Vector2(178, 142)
+
+[node name="Slime3" parent="." instance=ExtResource("4_hm0dn")]
+position = Vector2(-12, 102)
+
+[node name="Slime4" parent="." instance=ExtResource("4_hm0dn")]
+position = Vector2(49, 39)
+
+[node name="Slime5" parent="." instance=ExtResource("4_hm0dn")]
+position = Vector2(501, 427)
+
+[node name="Slime6" parent="." instance=ExtResource("4_hm0dn")]
+position = Vector2(713, 423)
+
+[node name="Slime7" parent="." instance=ExtResource("4_hm0dn")]
+position = Vector2(654, 154)
+
+[node name="Slime8" parent="." instance=ExtResource("4_hm0dn")]
+position = Vector2(474, 62)
+
+[node name="Slime9" parent="." instance=ExtResource("4_hm0dn")]
+position = Vector2(69, 620)
+
+[node name="Slime10" parent="." instance=ExtResource("4_hm0dn")]
+position = Vector2(289, 495)
+
+[node name="Slime11" parent="." instance=ExtResource("4_hm0dn")]
+position = Vector2(1062, 535)
+
+[node name="Plant7" parent="." instance=ExtResource("3_6g3ri")]
+position = Vector2(400, 532)
+
+[node name="Plant8" parent="." instance=ExtResource("3_6g3ri")]
+position = Vector2(785, 521)
+
+[node name="Plant9" parent="." instance=ExtResource("3_6g3ri")]
+position = Vector2(278, 78)
+
+[node name="Plant10" parent="." instance=ExtResource("3_6g3ri")]
+position = Vector2(767, 113)
+
+[node name="Plant11" parent="." instance=ExtResource("3_6g3ri")]
+position = Vector2(611, 497)
+
+[node name="Plant12" parent="." instance=ExtResource("3_6g3ri")]
+position = Vector2(874, 431)
