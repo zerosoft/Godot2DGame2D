@@ -1,14 +1,11 @@
 [gd_scene load_steps=16 format=3 uid="uid://i2vh4ifxlgl7"]
 
-
 [ext_resource type="Texture2D" uid="uid://6uvopmul3b1k" path="res://Player/Sprites/Shadow.png" id="1_0ae7n"]
 [ext_resource type="Texture2D" uid="uid://dg551vs6psbe8" path="res://Enemies/Slime/Slime.png" id="1_hsbk2"]
 [ext_resource type="Script" uid="uid://cgpshvnar36wk" path="res://Enemies/Scripts/enemy.gd" id="1_wyclx"]
-
 [ext_resource type="Script" uid="uid://c300xouepodhu" path="res://Enemies/Scripts/enemy_state_machine.gd" id="4_qsqqn"]
 [ext_resource type="Script" uid="uid://dvfm3hj7j22at" path="res://Enemies/Scripts/states/enemy_state_idle.gd" id="5_2osmb"]
 [ext_resource type="Script" uid="uid://csl55enyumwwh" path="res://Enemies/Scripts/states/enemy_state_walk.gd" id="5_puctb"]
-
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wyclx"]
 
@@ -251,7 +248,6 @@ libraries = {
 autoplay = "idle_down"
 
 [node name="EnemyStateMachine" type="Node" parent="."]
-
 script = ExtResource("4_qsqqn")
 
 [node name="walk" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]

@@ -9,7 +9,7 @@ const DIR_4 = [Vector2.LEFT, Vector2.RIGHT, Vector2.UP, Vector2.DOWN]
 
 var carddinal_directions :Vector2 = Vector2.DOWN
 var direction :Vector2 = Vector2.ZERO
-var play:Player
+var player:Player
 var invulnerable :bool = false
 
 @onready var animation_player :AnimationPlayer = $AnimationPlayer
@@ -19,11 +19,14 @@ var invulnerable :bool = false
 
 func _ready():
 	state_machine.Initialize(self)
-	play=PlayerManager.player 
+	player=PlayerManager.player 
 	pass
 
 func _physics_process(delta: float) -> void:
 	move_and_slide()
+
+func set_direction(_direction :Vector2):
+	direction=_direction;
 
 func SetDirection() -> bool:
 	var new_direction :Vector2 = carddinal_directions
