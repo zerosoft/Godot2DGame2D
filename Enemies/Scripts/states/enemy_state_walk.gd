@@ -1,7 +1,7 @@
 class_name EnemyStateWalk extends EnemyState
 
 @export var anim_name: String = "walk"
-@export var walk_speed: float = 100.0
+@export var walk_speed: float = 50.0
 
 @export_category("AI")
 
