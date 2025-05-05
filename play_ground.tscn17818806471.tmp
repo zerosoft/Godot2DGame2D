@@ -1,0 +1,88 @@
+[gd_scene load_steps=5 format=3 uid="uid://dttdk4xayxlse"]
+
+[ext_resource type="PackedScene" uid="uid://dysindd14sr5" path="res://Player/player.tscn" id="1_iu3qw"]
+[ext_resource type="PackedScene" uid="uid://byrh04rowwvfe" path="res://Tile Maps/grass-01.tscn" id="2_7oj32"]
+[ext_resource type="PackedScene" uid="uid://daroc8x6hipoq" path="res://Props/Plants/plant.tscn" id="3_6g3ri"]
+[ext_resource type="PackedScene" uid="uid://i2vh4ifxlgl7" path="res://Enemies/Slime/Slime.tscn" id="4_hm0dn"]
+
+[node name="PlayGround" type="Node2D"]
+y_sort_enabled = true
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_iu3qw")]
+position = Vector2(261, 213)
+
+[node name="Grass-01" parent="." instance=ExtResource("2_7oj32")]
+position = Vector2(0, 2)
+
+[node name="PNode" type="Node2D" parent="."]
+
+[node name="Plant" parent="PNode" instance=ExtResource("3_6g3ri")]
+position = Vector2(254, 248)
+
+[node name="Plant2" parent="PNode" instance=ExtResource("3_6g3ri")]
+position = Vector2(189, 369)
+
+[node name="Plant3" parent="PNode" instance=ExtResource("3_6g3ri")]
+position = Vector2(172, 209)
+
+[node name="Plant4" parent="PNode" instance=ExtResource("3_6g3ri")]
+position = Vector2(344, 170)
+
+[node name="Plant5" parent="PNode" instance=ExtResource("3_6g3ri")]
+position = Vector2(302, 405)
+
+[node name="Plant6" parent="PNode" instance=ExtResource("3_6g3ri")]
+position = Vector2(488, 196)
+
+[node name="Plant7" parent="PNode" instance=ExtResource("3_6g3ri")]
+position = Vector2(400, 532)
+
+[node name="Plant8" parent="PNode" instance=ExtResource("3_6g3ri")]
+position = Vector2(785, 521)
+
+[node name="Plant9" parent="PNode" instance=ExtResource("3_6g3ri")]
+position = Vector2(278, 78)
+
+[node name="Plant10" parent="PNode" instance=ExtResource("3_6g3ri")]
+position = Vector2(767, 113)
+
+[node name="Plant11" parent="PNode" instance=ExtResource("3_6g3ri")]
+position = Vector2(611, 497)
+
+[node name="Plant12" parent="PNode" instance=ExtResource("3_6g3ri")]
+position = Vector2(874, 431)
+
+[node name="ENode" type="Node" parent="."]
+
+[node name="Slime" parent="ENode" instance=ExtResource("4_hm0dn")]
+position = Vector2(188, 304)
+
+[node name="Slime2" parent="ENode" instance=ExtResource("4_hm0dn")]
+position = Vector2(178, 142)
+
+[node name="Slime3" parent="ENode" instance=ExtResource("4_hm0dn")]
+position = Vector2(-12, 102)
+
+[node name="Slime4" parent="ENode" instance=ExtResource("4_hm0dn")]
+position = Vector2(49, 39)
+
+[node name="Slime5" parent="ENode" instance=ExtResource("4_hm0dn")]
+position = Vector2(501, 427)
+
+[node name="Slime6" parent="ENode" instance=ExtResource("4_hm0dn")]
+position = Vector2(713, 423)
+
+[node name="Slime7" parent="ENode" instance=ExtResource("4_hm0dn")]
+position = Vector2(654, 154)
+
+[node name="Slime8" parent="ENode" instance=ExtResource("4_hm0dn")]
+position = Vector2(474, 62)
+
+[node name="Slime9" parent="ENode" instance=ExtResource("4_hm0dn")]
+position = Vector2(69, 620)
+
+[node name="Slime10" parent="ENode" instance=ExtResource("4_hm0dn")]
+position = Vector2(289, 495)
+
+[node name="Slime11" parent="ENode" instance=ExtResource("4_hm0dn")]
+position = Vector2(1062, 535)

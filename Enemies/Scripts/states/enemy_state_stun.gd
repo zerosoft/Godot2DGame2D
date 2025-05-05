@@ -8,6 +8,7 @@ class_name EnemyStateStun extends EnemyState
 
 @export var next_state : EnemyState = null
 
+var _danage_postion: Vector2
 var _direction: Vector2
 var _animation_finished: bool = false
 
@@ -16,15 +17,21 @@ func init()->void:
 	pass
 
 func enter()->void:
-	enemy.invulnerable=true
+	enemy.invulnerable = true
 
 	_animation_finished = false
 	
-	_direction=enemy.global_position.direction_to(enemy.player.global_position)
+	# 计算被攻击的方向
+	_direction = enemy.global_position.direction_to(_danage_postion)
 	
+	# 设置敌人远离攻击方向 10 像素
+	enemy.global_position -= _direction * 20
+
+	# 设置敌人的方向和速度
 	enemy.set_direction(_direction)
 	enemy.velocity = _direction * knockback_speed
 
+	# 播放击退动画
 	enemy.UpdateAnimation(anim_name)
 	enemy.animation_player.animation_finished.connect(_on_animation_finished)
 	pass
@@ -44,8 +51,9 @@ func physics_process(delta: float)->EnemyState:
 	# Called every physics frame while the state is active
 	return null
 
-func _on_enemy_damaged():
+func _on_enemy_damaged(hurt_box:HurtBox)->void:
 	print("enemy damaged stun")
+	_danage_postion = hurt_box.global_position
 	state_machine.change_state(self)
 	pass
 

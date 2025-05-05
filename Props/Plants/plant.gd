@@ -11,7 +11,7 @@ func _ready() -> void:
 		print("Node 'HitBox' not found!")
 	pass
 	
-func TakeDamage(_damage:int)->void:
+func TakeDamage(hurt_box:HurtBox)->void:
 	queue_free()
 	pass
 

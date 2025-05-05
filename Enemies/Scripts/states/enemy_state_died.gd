@@ -6,6 +6,7 @@ class_name EnemyStateDied extends EnemyState
 
 @export_category("AI")
 
+var _danage_postion: Vector2
 var _direction: Vector2
 
 
@@ -16,7 +17,7 @@ func init()->void:
 func enter()->void:
 	enemy.invulnerable=true
 	
-	_direction=enemy.global_position.direction_to(enemy.player.global_position)
+	_direction=enemy.global_position.direction_to(_danage_postion)
 	
 	enemy.set_direction(_direction)
 	enemy.velocity = _direction * knockback_speed
@@ -35,8 +36,8 @@ func process(_delta: float)->EnemyState:
 func physics_process(delta: float)->EnemyState:
 	# Called every physics frame while the state is active
 	return null
-
-func _on_enemy_destroy():
+func _on_enemy_destroy(hurt_box:HurtBox):
+	_danage_postion = hurt_box.global_position
 	state_machine.change_state(self)
 	pass
 
