@@ -15,8 +15,13 @@ func init() -> void:
 	player.player_damaged.connect(_player_damaged)
 
 func Enter() -> void:
-	player.UpdateAnimation("stun")
 	player.animation_player.animation_finished.connect(_on_animation_finished)
+	direction = player.global_position.direction_to(hurt_box.global_position)
+	player.velocity=direction * -knockback_speed
+	player.SetDirection()
+	player.UpdateAnimation("stun")
+	player.make_invulnerable(invulnerable_duration)
+	player.effect_animation_player.play("damaged")
 	pass
 
 func Exit() -> void:
@@ -32,8 +37,7 @@ func Exit() -> void:
 	pass
 
 func Process(_delta:float) -> State:
-
-
+	player.velocity -=player.velocity*deceleration_speed * _delta
 	return next_state
 
 func Physics(_delta:float) -> State:
