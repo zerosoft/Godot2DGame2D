@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0poniq584yn1"]
+
+[ext_resource type="Texture2D" uid="uid://ds72haopgcp6n" path="res://GUI/player_hud/gui-health.png" id="1_6ggty"]
+[ext_resource type="Script" uid="uid://d23pb1fi4alj2" path="res://GUI/player_hud/player_hud.gd" id="1_oghrr"]
+[ext_resource type="PackedScene" uid="uid://3g55jqhah04b" path="res://GUI/player_hud/heart_gui.tscn" id="2_alx7a"]
+
+[node name="PlayerHud" type="CanvasLayer"]
+script = ExtResource("1_oghrr")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+position = Vector2(923, 16)
+texture = ExtResource("1_6ggty")
+region_enabled = true
+region_rect = Rect2(29, 0, 34, 8)
+
+[node name="HFlowContainer" type="HFlowContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.944
+anchor_top = 0.034
+anchor_right = 0.982
+anchor_bottom = 0.119
+offset_left = -0.240051
+offset_top = 0.239998
+offset_right = -6.72003
+offset_bottom = -0.160004
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 2
+
+[node name="Heart" parent="Control/HFlowContainer" instance=ExtResource("2_alx7a")]
+layout_mode = 2
+
+[node name="Heart2" parent="Control/HFlowContainer" instance=ExtResource("2_alx7a")]
+layout_mode = 2
+
+[node name="Heart3" parent="Control/HFlowContainer" instance=ExtResource("2_alx7a")]
+layout_mode = 2
+
+[node name="Heart4" parent="Control/HFlowContainer" instance=ExtResource("2_alx7a")]
+layout_mode = 2
