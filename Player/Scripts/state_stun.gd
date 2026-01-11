@@ -6,6 +6,7 @@ class_name State_Stun extends State
 
 var hurt_box :HurtBox
 var direction: Vector2
+var heartsGUI : Node = null
 
 var next_state : State = null
 
@@ -38,6 +39,7 @@ func Exit() -> void:
 
 func Process(_delta:float) -> State:
 	player.velocity -=player.velocity*deceleration_speed * _delta
+	
 	return next_state
 
 func Physics(_delta:float) -> State:

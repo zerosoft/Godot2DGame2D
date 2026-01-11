@@ -12,14 +12,14 @@ config_version=5
 
 config/name="2DAct"
 run/main_scene="res://play_ground.tscn"
-config/features=PackedStringArray("4.4", "GL Compatibility")
+config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 LevelManager="*res://00_globals/GlobalLevelManager.gd"
-PlayerManager="*res://00_globals/global_player_manager.gd"
 PlayerHud="*res://GUI/player_hud/player_hud.tscn"
+PlayerManager="*res://00_globals/global_player_manager.gd"
 
 [display]
 

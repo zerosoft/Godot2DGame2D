@@ -4,8 +4,8 @@ var carddinal_directions :Vector2 = Vector2.DOWN
 var direction :Vector2 = Vector2.ZERO
 
 var invulnerable :bool = false
-var hp :int = 5
-var max_hp :int = 5
+var hp :int = 6
+var max_hp :int = 8
 
 @onready var animation_player :AnimationPlayer = $AnimationPlayer
 @onready var effect_animation_player :AnimationPlayer = $EffectAnimationPlayer
@@ -79,6 +79,8 @@ func _physics_process(delta: float) -> void:
  	# 限制角色在地图边界内移动
 	if LevelManager.current_titlemap_bounds!=null:
 		var bounds :Array[Vector2] = LevelManager.current_titlemap_bounds
+		if bounds.size() != 2:
+			return
 		if position.x < bounds[0].x:
 			position.x = bounds[0].x
 		elif position.x > bounds[1].x:
@@ -105,6 +107,7 @@ func _take_damage(hurt_box:HurtBox) -> void:
 
 func update_hp(delta:int) -> void:
 	hp = clampi(hp + delta, 0, max_hp)
+	PlayerHud.update_hp(hp, max_hp)
 	pass
 
 func make_invulnerable(_duration:float=1.0) -> void:
