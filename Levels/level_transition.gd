@@ -42,12 +42,13 @@ func _ready() -> void:
 	pass
 
 func _player_entered(body:Node2D):
-	print("Player entered transition area!")
+	print("Player entered transition area! "+target_transition_area)
 	print("Body name:", body.name)
 	LevelManager.load_new_level(level,target_transition_area,get_offset())
 	pass
 
 func _place_player()->void:
+	print("=============="+name)
 	if name != LevelManager.target_transition:
 		return
 	PlayerManager.set_player_position(global_position+LevelManager.position_offset)
